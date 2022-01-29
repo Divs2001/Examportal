@@ -11,7 +11,7 @@ import java.util.List;
 @Repository
 public interface UserRepositoy extends JpaRepository<User, Long> {
 
-    public User findByUserName(String userName);
+    public User findByUsername(String username);
 
 //    @Query("delete u from user_role where u.user_id=:id")
 //    public void deleteUserFromUser_Role(@Param("id") Long id);

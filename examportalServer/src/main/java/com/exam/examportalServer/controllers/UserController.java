@@ -22,10 +22,10 @@ public class UserController {
     }
 
     //getting a user api
-    @GetMapping(path="/getUser/{userName}")
+    @GetMapping(path="/getUser/{username}")
 //    public User getUser(@RequestParam Long id){
-    public User getUser(@PathVariable String userName){
-        return userService.getUser(userName);
+    public User getUser(@PathVariable String username){
+        return userService.getUser(username);
     }
 
     //saving a user api

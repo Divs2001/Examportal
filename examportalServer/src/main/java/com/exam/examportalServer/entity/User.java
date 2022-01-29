@@ -2,6 +2,7 @@ package com.exam.examportalServer.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
@@ -20,7 +21,7 @@ public class User implements UserDetails {
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     private Long id;
-    private String userName;
+    private String username;
     private String password;
     private String firstName;
     private String lastName;
@@ -35,8 +36,8 @@ public class User implements UserDetails {
     @JsonIgnore
     private Set<Role> roles = new HashSet<>();
 
-    public User(String userName, String password, String firstName, String lastName, String email, String phone, boolean enabled, String profileImage) {
-        this.userName = userName;
+    public User(String username, String password, String firstName, String lastName, String email, String phone, boolean enabled, String profileImage) {
+        this.username = username;
         this.password = password;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -58,7 +59,7 @@ public class User implements UserDetails {
 
     @Override
     public String getUsername() {
-        return userName;
+        return username;
     }
 
     @Override
@@ -76,7 +77,4 @@ public class User implements UserDetails {
         return true;
     }
 
-    public String getUserName() {
-        return userName;
-    }
 }

@@ -24,25 +24,25 @@ public class UserService {
         return userRepository.findAll();
     }
 
-    public User getUser(String userName) {
+    public User getUser(String username) {
 //        return userRepository.findById(id).orElse(null)
-        return userRepository.findByUserName(userName);
+        return userRepository.findByUsername(username);
     }
 
     public User saveUser(User user) throws Exception {
 
-        User newUser = userRepository.findByUserName(user.getUserName());
+        User newUser = userRepository.findByUsername(user.getUsername());
         if (newUser != null) {
 //            System.out.println("User is already present");
 //            return newUser;
             throw new Exception("User is already present!!");
         } else {
-            newUser = new User(user.getUserName(), user.getPassword(), user.getFirstName(), user.getLastName(), user.getEmail(), user.getPhone(),
+            newUser = new User(user.getUsername(), user.getPassword(), user.getFirstName(), user.getLastName(), user.getEmail(), user.getPhone(),
                     user.isEnabled(), user.getProfileImage());
             Set<Role> roles = new HashSet<>();
             Role role;
             if (roleRepository.findByRoleName("NORMAL") == null) {
-                role = new Role("Normal");
+                role = new Role("NORMAL");
             } else {
                 role = roleRepository.findByRoleName("NORMAL");
             }

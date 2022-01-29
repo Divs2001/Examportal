@@ -1,0 +1,19 @@
+<mat-toolbar class="toolbar-color">
+    <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+        <mat-icon>menu</mat-icon>
+    </button>
+    <span><a routerLink="/" class="quizzo">Quizzo</a></span>
+    <span class="example-spacer"></span>
+    <a [routerLink]="'/login'"
+     mat-raised-button class="example-icon login-icon" aria-label="Example icon-button with heart icon">
+       Login
+        <!-- <mat-icon>login</mat-icon> -->
+    </a
+    >
+    <a [routerLink]="'/signup'"
+    mat-raised-button class="example-icon login-icon" aria-label="Example icon-button with heart icon">
+        Register
+         <!-- <mat-icon>login</mat-icon> -->
+     </a>
+   
+</mat-toolbar>

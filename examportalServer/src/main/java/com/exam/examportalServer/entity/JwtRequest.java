@@ -9,6 +9,6 @@ import lombok.*;
 @AllArgsConstructor
 public class JwtRequest {
 
-    private String userName;
+    private String username;
     private String password;
 }

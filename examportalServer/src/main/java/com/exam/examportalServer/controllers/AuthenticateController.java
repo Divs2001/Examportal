@@ -13,7 +13,7 @@ import org.springframework.security.authentication.DisabledException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
-import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -28,23 +28,23 @@ public class AuthenticateController {
     @Autowired
     private JwtUtil jwtUtil;
 
-    @GetMapping("/generate-token")
+    @PostMapping("/generate-token")
     public ResponseEntity<?> generateToken(@RequestBody JwtRequest jwtRequest) throws Exception {
         try{
-            authenticate(jwtRequest.getUserName(), jwtRequest.getPassword());
+            authenticate(jwtRequest.getUsername(), jwtRequest.getPassword());
         }catch(UsernameNotFoundException e){
             e.printStackTrace();
             throw new Exception("User not found");
         }
 
-        UserDetails userDetails = this.userDetailsService.loadUserByUsername(jwtRequest.getUserName());
+        UserDetails userDetails = this.userDetailsService.loadUserByUsername(jwtRequest.getUsername());
         String token = this.jwtUtil.generateToken(userDetails);
         return ResponseEntity.ok(new JwtResponse(token));
     }
 
-    private void authenticate(String userName, String password) throws Exception {
+    private void authenticate(String username, String password) throws Exception {
         try{
-            authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(userName, password));
+            authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(username, password));
 
         }catch(DisabledException e){
             throw new Exception("User Disabled");
