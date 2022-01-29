@@ -33,9 +33,9 @@ public class UserService {
 
         User newUser = userRepository.findByUserName(user.getUserName());
         if (newUser != null) {
-            System.out.println("User is already present");
-            return newUser;
-//            throw new Exception("User is already present!!");
+//            System.out.println("User is already present");
+//            return newUser;
+            throw new Exception("User is already present!!");
         } else {
             newUser = new User(user.getUserName(), user.getPassword(), user.getFirstName(), user.getLastName(), user.getEmail(), user.getPhone(),
                     user.isEnabled(), user.getProfileImage());
