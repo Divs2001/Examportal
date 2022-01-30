@@ -18,6 +18,10 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { HomeComponent } from './pages/home/home.component';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatCardModule} from '@angular/material/card';
+import { authInterceptorProviders } from './services/auth.interceptor';
+import { UserDasboardComponent } from './pages/user/user-dasboard/user-dasboard.component';
+import { AdminDasboardComponent } from './pages/admin/admin-dasboard/admin-dasboard.component';
+
 
 
 @NgModule({
@@ -27,7 +31,9 @@ import {MatCardModule} from '@angular/material/card';
     FooterComponent,
     SignupComponent,
     LoginComponent,
-    HomeComponent
+    HomeComponent,
+    UserDasboardComponent,
+    AdminDasboardComponent
   ],
   imports: [
     BrowserModule,
@@ -43,7 +49,7 @@ import {MatCardModule} from '@angular/material/card';
     MatToolbarModule,
     MatCardModule
   ],
-  providers: [],
+  providers: [authInterceptorProviders],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

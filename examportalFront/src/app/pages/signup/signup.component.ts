@@ -14,7 +14,7 @@ export class SignupComponent implements OnInit {
     private snack: MatSnackBar) { }
 
   public user={
-    userName:'',
+    username:'',
     password:'',
     firstName:'',
     lastName:'',
@@ -27,8 +27,33 @@ export class SignupComponent implements OnInit {
 
   formSubmit(){
     console.log(this.user);
-    if(this.user.userName==''|| this.user.userName==null){
+    if(this.user.username==''|| this.user.username==null){
       this.snack.open("Username is required!!",'',{
+        duration:3000, horizontalPosition:'right'
+      });
+      return;
+    }else if(this.user.password==''|| this.user.password==null){
+      this.snack.open("Password is required!!",'',{
+        duration:3000, horizontalPosition:'right'
+      });
+      return;
+    }else if(this.user.firstName==''|| this.user.firstName==null){
+      this.snack.open("First name is required!!",'',{
+        duration:3000, horizontalPosition:'right'
+      });
+      return;
+    }else if(this.user.lastName==''|| this.user.lastName==null){
+      this.snack.open("Last name is required!!",'',{
+        duration:3000, horizontalPosition:'right'
+      });
+      return;
+    }else if(this.user.email==''|| this.user.email==null){
+      this.snack.open("Email is required!!",'',{
+        duration:3000, horizontalPosition:'right'
+      });
+      return;
+    }else if(this.user.phone==''|| this.user.phone==null){
+      this.snack.open("Phone number is required!!",'',{
         duration:3000, horizontalPosition:'right'
       });
       return;
