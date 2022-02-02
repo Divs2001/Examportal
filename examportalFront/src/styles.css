@@ -10,3 +10,10 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .text-center{
     text-align: center;
 }
+.mt20, .mb20, .mr20, .ml20{
+    margin-top: 20px;
+}
+
+.mt30, .mb30, .mr30, .ml30{
+    margin-top: 20px;
+}

@@ -5,6 +5,7 @@ import com.exam.examportalServer.entity.User;
 import com.exam.examportalServer.repo.RoleRepository;
 import com.exam.examportalServer.repo.UserRepositoy;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.HashSet;
@@ -19,6 +20,9 @@ public class UserService {
 
     @Autowired
     private RoleRepository roleRepository;
+
+    @Autowired
+    private BCryptPasswordEncoder bCryptPasswordEncoder;
 
     public List<User> getAllUsers() {
         return userRepository.findAll();
@@ -39,6 +43,11 @@ public class UserService {
         } else {
             newUser = new User(user.getUsername(), user.getPassword(), user.getFirstName(), user.getLastName(), user.getEmail(), user.getPhone(),
                     user.isEnabled(), user.getProfileImage());
+
+            newUser.setProfileImage("default.png");
+            //encoding password
+            newUser.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
+
             Set<Role> roles = new HashSet<>();
             Role role;
             if (roleRepository.findByRoleName("NORMAL") == null) {

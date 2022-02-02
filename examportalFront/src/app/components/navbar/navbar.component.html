@@ -2,16 +2,17 @@
     <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
         <mat-icon>menu</mat-icon>
     </button>
-    <span><a routerLink="/" class="quizzo">Quizzo</a></span>
+    <span><a *ngIf="!isLoggedIn" routerLink="/" class="quizzo">Quizzo</a>
+    <a *ngIf="isLoggedIn && user" routerLink="/admin-dashboard"class="quizzo">Quizzo</a></span>
     <span class="example-spacer"></span>
-    <a *ngIf="!loginService.isLoggedIn()"
+    <a *ngIf="!isLoggedIn"
     [routerLink]="'/login'"
      mat-raised-button class="example-icon login-icon" aria-label="Example icon-button with heart icon">
        Login
         <!-- <mat-icon>login</mat-icon> -->
     </a
     >
-    <a *ngIf="!loginService.isLoggedIn()" 
+    <a *ngIf="!isLoggedIn" 
     [routerLink]="'/signup'"
     mat-raised-button class="example-icon login-icon" aria-label="Example icon-button with heart icon">
         Register
@@ -19,14 +20,15 @@
      </a>
 
      <a 
-     *ngIf="loginService.isLoggedIn()" class="username" mat-button
-     >
-    {{loginService.getUser().username}}
+     *ngIf="isLoggedIn" 
+     routerLink="/admin-dashboard/profile"
+    mat-raised-button class="example-icon login-icon" aria-label="Example icon-button with heart icon">
+        {{user.username}}
          <!-- <mat-icon>login</mat-icon> -->
      </a>
 
      <a (click)="logout()"
-     *ngIf="loginService.isLoggedIn()" 
+     *ngIf="isLoggedIn && user" 
      
     mat-raised-button class="example-icon login-icon" aria-label="Example icon-button with heart icon">
         Logout

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { Router } from '@angular/router';
 import { UserService } from 'src/app/services/user.service';
 import Swal from 'sweetalert2';
 
@@ -11,7 +12,7 @@ import Swal from 'sweetalert2';
 export class SignupComponent implements OnInit {
 
   constructor(private userService: UserService,
-    private snack: MatSnackBar) { }
+    private snack: MatSnackBar, private router:Router) { }
 
   public user={
     username:'',
@@ -62,9 +63,11 @@ export class SignupComponent implements OnInit {
     this.userService.addUser(this.user).subscribe(
       (data)=>{
         //success
-        console.log(data);
+        // console.log(data);
         // alert('success');
         Swal.fire("Success","User is registered","success");
+        this.router.navigate(['login']);
+
       },
       (error)=>{
         console.log(error);
@@ -72,6 +75,14 @@ export class SignupComponent implements OnInit {
         this.snack.open("Something went wrong", '', {
           duration:3000, horizontalPosition:'right'
         })
+        // if(error.status==500){
+        //   this.snack.open("User is already registered with this username, try another one.", '', {
+        //     duration:3000, horizontalPosition:'right'
+        //   })
+        // }else{
+        // this.snack.open("Something went wrong, please try again !!", '', {
+        //   duration:3000, horizontalPosition:'right'
+        // })
       }
     );
   }

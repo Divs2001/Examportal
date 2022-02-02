@@ -1,8 +1,10 @@
 import { Component, NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AdminDasboardComponent } from './pages/admin/admin-dasboard/admin-dasboard.component';
+import { WelcomeComponent } from './pages/admin/welcome/welcome.component';
 import { HomeComponent } from './pages/home/home.component';
 import { LoginComponent } from './pages/login/login.component';
+import { ProfileComponent } from './pages/profile/profile.component';
 import { SignupComponent } from './pages/signup/signup.component';
 import { UserDasboardComponent } from './pages/user/user-dasboard/user-dasboard.component';
 import { AdminGuard } from './services/Admin Guard/admin.guard';
@@ -28,15 +30,26 @@ const routes: Routes = [
   {
     path:"admin-dashboard",
     component:AdminDasboardComponent,
-    pathMatch:"full",
-    canActivate:[AdminGuard]
+    // pathMatch:"full",
+    canActivate:[AdminGuard],
+    children:[
+      {
+        path:'',
+        component: WelcomeComponent
+      },
+      {
+        path:"profile",
+        component:ProfileComponent
+      }
+    ]
   },
   {
     path:"user-dashboard",
     component: UserDasboardComponent,
     pathMatch:"full",
     canActivate:[NormalGuard]
-  }
+  },
+
 ];
 
 @NgModule({
