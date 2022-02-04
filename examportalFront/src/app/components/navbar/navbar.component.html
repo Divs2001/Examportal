@@ -1,8 +1,8 @@
 <mat-toolbar class="toolbar-color">
     <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
-        <mat-icon>menu</mat-icon>
+        <mat-icon style="color: white;">menu</mat-icon>
     </button>
-    <span><a *ngIf="!isLoggedIn" routerLink="/" class="quizzo">Quizzo</a>
+    <span style="color: white;"><a *ngIf="!isLoggedIn" routerLink="/" class="quizzo">Quizzo</a>
     <a *ngIf="isLoggedIn && user" routerLink="/admin-dashboard"class="quizzo">Quizzo</a></span>
     <span class="example-spacer"></span>
     <a *ngIf="!isLoggedIn"
