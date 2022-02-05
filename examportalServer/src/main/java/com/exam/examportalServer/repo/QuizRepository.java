@@ -12,7 +12,6 @@ import javax.transaction.Transactional;
 public interface QuizRepository extends JpaRepository<Quiz, Long> {
 
     @Modifying
-    @Transactional
     @Query(value = "DELETE FROM quiz WHERE quiz_id = :quizId", nativeQuery = true)
     public void deleteQuiz(Long quizId);
 }

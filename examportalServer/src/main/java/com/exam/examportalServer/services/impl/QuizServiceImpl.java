@@ -6,6 +6,7 @@ import com.exam.examportalServer.services.interfaces.QuizService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.LinkedHashSet;
 import java.util.Set;
 
@@ -36,6 +37,7 @@ public class QuizServiceImpl implements QuizService {
     }
 
     @Override
+    @Transactional
     public void deleteQuiz(Long quizId) {
 //        this.quizRepository.deleteById(quizId);
         this.quizRepository.deleteQuiz(quizId);

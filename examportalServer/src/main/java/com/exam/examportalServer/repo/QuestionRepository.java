@@ -14,7 +14,6 @@ import java.util.Set;
 public interface QuestionRepository extends JpaRepository<Question, Long> {
 
     @Modifying
-    @Transactional
     @Query(value = "DELETE FROM question WHERE ques_id = :quesId", nativeQuery = true)
     public void deleteQuestion(Long quesId);
 }

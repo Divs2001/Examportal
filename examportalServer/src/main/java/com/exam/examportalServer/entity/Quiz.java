@@ -13,7 +13,7 @@ import javax.persistence.*;
 @Setter
 @Entity
 @NoArgsConstructor
-public class Quiz
+public class  Quiz
 {
 
     @Id
