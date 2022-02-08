@@ -60,10 +60,10 @@ export class ViewQuizzesComponent implements OnInit {
         )
       }
     })
+  }
 
-
-
-
+  public updateQuiz(quizId:any){
+    this.router.navigate(["admin-dashboard/update-quiz",quizId]);
   }
 
 }

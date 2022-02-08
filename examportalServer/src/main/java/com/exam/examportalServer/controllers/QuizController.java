@@ -22,7 +22,7 @@ public class QuizController {
     }
 
     @PutMapping("/updateQuiz")
-    public Quiz updateQuiz(@RequestParam Quiz quiz){
+    public Quiz updateQuiz(@RequestBody Quiz quiz){
         return this.quizServiceImpl.updateQuiz(quiz);
     }
 

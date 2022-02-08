@@ -10,7 +10,9 @@
                         <mat-card-subtitle>{{q.category.title}}</mat-card-subtitle>
                     </div>
                     <div class="col-md-2 offset-md-2">
-                        <button mat-icon-button style="background-color:white; color:  #FC5656;">
+                        <button 
+                            (click)="updateQuiz(q.quizId)"
+                            mat-icon-button style="background-color:white; color:  #FC5656;">
                             <mat-icon>edit</mat-icon>
                         </button>
                         <button mat-icon-button style="background-color:white; color:  #FC5656;"
