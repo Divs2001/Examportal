@@ -26,11 +26,14 @@
         </div>
 
     
-    <mat-card-content>
+    <mat-card-content> 
         <p>{{q.description}}</p>
     </mat-card-content>
     <mat-card-actions>
-        <button mat-flat-button style="background-color: #FC5656; color: white;">Questions</button>
+        <button
+        [routerLink]="'/admin-dashboard/view-questions/'+q.quizId+'/'+q.title" 
+        mat-flat-button 
+        style="background-color: #FC5656; color: white;">Questions</button>
         <button mat-stroked-button style="background-color:white; color:  #FC5656;">Max. Marks {{q.maxMarks}}</button>
         <button mat-stroked-button style="background-color:white; color:  #FC5656;">Questions:
             {{q.numberOfQuestions}}</button>

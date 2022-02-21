@@ -8,6 +8,7 @@ import com.exam.examportalServer.services.UserDetailsServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.DisabledException;
@@ -31,6 +32,7 @@ public class AuthenticateController {
     private JwtUtil jwtUtil;
 
     @PostMapping("/generate-token")
+//    @PreAuthorize("hasRole('NORMAL')")
     public ResponseEntity<?> generateToken(@RequestBody JwtRequest jwtRequest) throws Exception {
         try{
             authenticate(jwtRequest.getUsername(), jwtRequest.getPassword());

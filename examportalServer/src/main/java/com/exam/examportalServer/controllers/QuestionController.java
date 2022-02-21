@@ -44,6 +44,11 @@ public class QuestionController {
         return ResponseEntity.ok(this.questionServiceImpl.getQuestionOfQuiz(quizId));
     }
 
+    @GetMapping("/getAllQuestionOfQuiz")
+    public ResponseEntity<?> getQuestionOfQuizAdmin(@RequestParam Long quizId) {
+        return this.questionServiceImpl.getQuestionOfQuizAdmin(quizId);
+    }
+
     @DeleteMapping("/deleteQuestion")
     public void deleteQuestion(@RequestParam Long quesId){
         this.questionServiceImpl.deleteQuestion(quesId);

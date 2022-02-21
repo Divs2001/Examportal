@@ -55,6 +55,15 @@ public class QuestionServiceImpl implements QuestionService {
 
     }
 
+
+    public ResponseEntity<?> getQuestionOfQuizAdmin(Long quizId) {
+        Quiz quiz = this.quizService.getQuiz(quizId);
+        Set<Question> questions = quiz.getQuestions();
+
+        return ResponseEntity.ok(questions);
+
+    }
+
     @Override
     @Transactional
     public void deleteQuestion(Long quesId) {

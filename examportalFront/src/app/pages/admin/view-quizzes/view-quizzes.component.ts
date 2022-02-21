@@ -66,4 +66,5 @@ export class ViewQuizzesComponent implements OnInit {
     this.router.navigate(["admin-dashboard/update-quiz",quizId]);
   }
 
+  
 }
