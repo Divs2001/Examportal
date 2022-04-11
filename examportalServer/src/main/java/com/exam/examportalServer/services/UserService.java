@@ -3,7 +3,7 @@ package com.exam.examportalServer.services;
 import com.exam.examportalServer.entity.Role;
 import com.exam.examportalServer.entity.User;
 import com.exam.examportalServer.repo.RoleRepository;
-import com.exam.examportalServer.repo.UserRepositoy;
+import com.exam.examportalServer.repo.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -16,7 +16,7 @@ import java.util.Set;
 public class UserService {
 
     @Autowired
-    private UserRepositoy userRepository;
+    private UserRepository userRepository;
 
     @Autowired
     private RoleRepository roleRepository;

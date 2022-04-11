@@ -13,7 +13,8 @@ import { HomeComponent } from './pages/home/home.component';
 import { LoginComponent } from './pages/login/login.component';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { SignupComponent } from './pages/signup/signup.component';
-import { UserDasboardComponent } from './pages/user/user-dasboard/user-dasboard.component';
+import { LoadQuizComponent } from './pages/user/load-quiz/load-quiz.component';
+import { UserDasboardComponent as UserDasboardComponent } from './pages/user/user-dasboard/user-dasboard.component';
 import { AdminGuard } from './services/Admin Guard/admin.guard';
 import { NormalGuard } from './services/Normal Guard/normal.guard';
 
@@ -81,8 +82,13 @@ const routes: Routes = [
   {
     path:"user-dashboard",
     component: UserDasboardComponent,
-    pathMatch:"full",
-    canActivate:[NormalGuard]
+    canActivate:[NormalGuard],
+    children:[
+      {
+        path:'getQuizzes/:catId',
+        component:LoadQuizComponent
+      }
+    ]
   },
 
 ];

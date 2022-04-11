@@ -8,6 +8,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
 import java.util.Collection;
+import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -29,6 +30,10 @@ public class User implements UserDetails {
     private String phone;
     private boolean enabled = true;
     private String profileImage;
+    @Column(name="one_time_password")
+    private String oneTimePassword;
+    @Column(name="otp_requested_time")
+    private Date otpRequestedTime;
 
     @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinTable(name="user_role", joinColumns = @JoinColumn(name="user_id"),

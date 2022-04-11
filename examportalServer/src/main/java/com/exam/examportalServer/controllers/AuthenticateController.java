@@ -32,7 +32,6 @@ public class AuthenticateController {
     private JwtUtil jwtUtil;
 
     @PostMapping("/generate-token")
-//    @PreAuthorize("hasRole('NORMAL')")
     public ResponseEntity<?> generateToken(@RequestBody JwtRequest jwtRequest) throws Exception {
         try{
             authenticate(jwtRequest.getUsername(), jwtRequest.getPassword());

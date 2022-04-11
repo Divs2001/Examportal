@@ -42,4 +42,16 @@ public class QuizServiceImpl implements QuizService {
 //        this.quizRepository.deleteById(quizId);
         this.quizRepository.deleteQuiz(quizId);
     }
+
+    public Set<Quiz> getQuizzesForACategory(Long catId) {
+        return this.quizRepository.findQuizzesByCat(catId);
+    }
+
+    public Set<Quiz> getQuizzesByActive() {
+        return this.quizRepository.findQuizzesByActive();
+    }
+
+    public Set<Quiz> getQuizzesForACategoryAndActive(Long catId) {
+        return this.quizRepository.findQuizzesByCatAndActive(catId);
+    }
 }

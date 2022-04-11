@@ -36,6 +36,21 @@ public class QuizController {
         return this.quizServiceImpl.getQuiz(quizId);
     }
 
+    @GetMapping("/getQuizzesForACategory")
+    public Set<Quiz> getQuizzesForACategory(@RequestParam Long catId){
+        return this.quizServiceImpl.getQuizzesForACategory(catId);
+    }
+
+    @GetMapping("getQuizzesByActive")
+    public Set<Quiz> getQuizzesByActive(){
+        return this.quizServiceImpl.getQuizzesByActive();
+    }
+
+    @GetMapping("/getQuizzesForACategoryAndActive")
+    public Set<Quiz> getQuizzesForACategoryAndActive(@RequestParam Long catId){
+        return this.quizServiceImpl.getQuizzesForACategoryAndActive(catId);
+    }
+
     @DeleteMapping("/deleteQuiz")
     public void deleteQuiz(@RequestParam Long quizId){
         this.quizServiceImpl.deleteQuiz(quizId);

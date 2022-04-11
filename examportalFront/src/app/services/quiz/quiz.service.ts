@@ -28,4 +28,16 @@ export class QuizService {
   public updateQuiz(quizData:any){
     return this.http.put(`${baseUrl}/quiz/updateQuiz`,quizData);
   }
+
+  public getQuizzesForACategory(catId:any){
+    return this.http.get(`${baseUrl}/quiz/getQuizzesForACategory?catId=`+catId);
+  }
+
+  public getQuizzesByActive(){
+    return this.http.get(`${baseUrl}/quiz/getQuizzesByActive`);
+  }
+
+  public getQuizzesForACategoryAndActive(catId:any){
+    return this.http.get(`${baseUrl}/quiz/getQuizzesForACategoryAndActive?catId=`+catId);
+  }
 }
