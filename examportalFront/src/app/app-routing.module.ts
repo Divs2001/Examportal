@@ -9,11 +9,15 @@ import { ViewCategoriesComponent } from './pages/admin/view-categories/view-cate
 import { ViewQuizQuestionsComponent } from './pages/admin/view-quiz-questions/view-quiz-questions.component';
 import { ViewQuizzesComponent } from './pages/admin/view-quizzes/view-quizzes.component';
 import { WelcomeComponent } from './pages/admin/welcome/welcome.component';
+import { ForgotPasswordComponent } from './pages/forgot-password/forgot-password.component';
 import { HomeComponent } from './pages/home/home.component';
 import { LoginComponent } from './pages/login/login.component';
 import { ProfileComponent } from './pages/profile/profile.component';
+import { ResetPassowrdComponent } from './pages/reset-passowrd/reset-passowrd.component';
 import { SignupComponent } from './pages/signup/signup.component';
+import { InstructionsComponent } from './pages/user/instructions/instructions.component';
 import { LoadQuizComponent } from './pages/user/load-quiz/load-quiz.component';
+import { StartComponent } from './pages/user/start/start.component';
 import { UserDasboardComponent as UserDasboardComponent } from './pages/user/user-dasboard/user-dasboard.component';
 import { AdminGuard } from './services/Admin Guard/admin.guard';
 import { NormalGuard } from './services/Normal Guard/normal.guard';
@@ -87,8 +91,28 @@ const routes: Routes = [
       {
         path:'getQuizzes/:catId',
         component:LoadQuizComponent
-      }
+      },
+      {
+        path:'instructions/:quizId',
+        component:InstructionsComponent,
+      },
+      
     ]
+  },
+  
+  {
+    path:"forgot-password",
+    component: ForgotPasswordComponent,
+    pathMatch:"full"
+  },
+  {
+    path:"reset-password/:id",
+    component:ResetPassowrdComponent,
+  },
+  {
+    path:'start/:quizId',
+    component:StartComponent,
+    canActivate:[NormalGuard]
   },
 
 ];
