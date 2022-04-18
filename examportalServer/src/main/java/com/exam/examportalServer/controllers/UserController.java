@@ -1,8 +1,9 @@
 package com.exam.examportalServer.controllers;
 
-import com.exam.examportalServer.entity.User;
+import com.exam.examportalServer.entity.*;
 import com.exam.examportalServer.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -46,6 +47,18 @@ public class UserController {
 //         }
         return "Deleted";
 
+    }
+
+    @PostMapping(path="/forgot-password")
+    public ForgotPasswordResponse forgotPassword(@RequestBody ForgotPasswordResource email){
+        System.out.println("Entered in controller");
+        return this.userService.forgotPassword(email.getEmail());
+    }
+
+    @PutMapping(path="/reset-password")
+    public ResetPasswordResponse resetPassword(@RequestBody ResetPasswordResource rpr){
+        System.out.println("I am in.");
+        return this.userService.resetPassword(rpr.getId(),rpr.getNew_password());
     }
 
 }

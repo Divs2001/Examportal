@@ -12,5 +12,13 @@ export class UserService {
 
   public addUser(user:any){
       return this.http.post(`${baseUrl}/users/saveUser`, user);
+  } 
+
+  public forgotPassword(data:any){
+    return this.http.post(`${baseUrl}/users/forgot-password`,data);
+  }
+
+  public resetPassword(jsonData:any){
+    return this.http.put(`${baseUrl}/users/reset-password`,jsonData);
   }
 }

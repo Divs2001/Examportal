@@ -37,7 +37,10 @@ import { AddQuestionComponent } from './pages/admin/add-question/add-question.co
 import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 import { UserSidebarComponent } from './pages/user/user-sidebar/user-sidebar.component';
 import { LoadQuizComponent } from './pages/user/load-quiz/load-quiz.component';
-
+import { ForgotPasswordComponent } from './pages/forgot-password/forgot-password.component';
+import { ResetPassowrdComponent } from './pages/reset-passowrd/reset-passowrd.component';
+import { InstructionsComponent } from './pages/user/instructions/instructions.component';
+import { StartComponent } from './pages/user/start/start.component';
 
 @NgModule({
   declarations: [
@@ -61,6 +64,10 @@ import { LoadQuizComponent } from './pages/user/load-quiz/load-quiz.component';
     AddQuestionComponent,
     UserSidebarComponent,
     LoadQuizComponent,
+    ForgotPasswordComponent,
+    ResetPassowrdComponent,
+    InstructionsComponent,
+    StartComponent,
     
   ],
   imports: [
@@ -79,7 +86,7 @@ import { LoadQuizComponent } from './pages/user/load-quiz/load-quiz.component';
     MatListModule,
     MatSlideToggleModule,
     MatSelectModule,
-    CKEditorModule
+    CKEditorModule,
   ],
   providers: [authInterceptorProviders],
   bootstrap: [AppComponent]
